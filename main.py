@@ -11,7 +11,7 @@ bg_image = pygame.image.load("assets/images/background/background.jpg").convert_
 
 def draw_bg():
     scaled_bg = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
-    screen.blit(bg_image, (0,0))
+    screen.blit(scaled_bg, (0,0))
 
 
 run = True
