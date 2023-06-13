@@ -25,7 +25,7 @@ while run:
 
     draw_bg()
 
-    fighter_1.move(SCREEN_WIDTH)
+    fighter_1.move(SCREEN_WIDTH, SCREEN_HEIGHT)
     # fighter_2.move()
 
     fighter_1.draw(screen)
