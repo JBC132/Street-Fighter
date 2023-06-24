@@ -16,6 +16,12 @@ WHITE = (255,255,255)
 
 bg_image = pygame.image.load("assets/images/background/background.jpg").convert_alpha()
 
+warrior_sheet = pygame.image.load("assets/images/warrior/Sprites/warrior.png").convert_alpha()
+wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").convert_alpha()
+
+WARRIOR_ANIMATION_STEPS = [10,8,1,7,7,3,7]
+WIZARD_ANIMATION_STEPS = [8,8,1,8,8,3,7]
+
 def draw_bg():
     scaled_bg = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
     screen.blit(scaled_bg, (0,0))
