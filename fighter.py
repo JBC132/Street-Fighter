@@ -12,8 +12,14 @@ class Fighter():
         self.health = 100
 
     def load_images(self, sprite_sheet, animation_steps):
-        for _ in range(animation):
-            temp_img = sprite_sheet.subsurface()
+        animation_list = []
+        for y, animation in enumerate(animation_steps):
+            temp_img_list = []
+            for x in range(animation):
+                temp_img = sprite_sheet.subsurface(x*self.size, y*self.size,self.size, self.size)
+                temp_img_list.append(temp_img)
+            animation_list.append(temp_img_list)
+
 
     def move(self, screen_width, screen_height,surface, target):
         SPEED = 10
