@@ -4,6 +4,7 @@ class Fighter():
     def __init__(self, x, y, data, sprite_sheet, animation_steps):
         self.size = data[0]
         self.image_scale = data[1]
+        self.offset = data[2]
         self.flip = False
         self.animation_list = self.load_images(sprite_sheet, animation_steps)
         self.action = 0 #0:idle #1:run #2:jump #3:attack1 #4:attack2 #5:hit #6:death
@@ -80,4 +81,4 @@ class Fighter():
 
     def draw(self, surface):
         pygame.draw.rect(surface, (255,0,0), self.rect)
-        surface.blit(self.image, (self.rect.x, self.rect.y))
+        surface.blit(self.image, (self.rect.x - (self.offset[0]*self.image_scale), self.rect.y - (self.offset[1]*self.image_scale)))
