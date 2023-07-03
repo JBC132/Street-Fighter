@@ -1,11 +1,11 @@
 import pygame
 
 class Fighter():
-    def __init__(self, x, y, data, sprite_sheet, animation_steps):
+    def __init__(self, x, y, flip, data, sprite_sheet, animation_steps):
         self.size = data[0]
         self.image_scale = data[1]
         self.offset = data[2]
-        self.flip = False
+        self.flip = flip
         self.animation_list = self.load_images(sprite_sheet, animation_steps)
         self.action = 0 #0:idle #1:run #2:jump #3:attack1 #4:attack2 #5:hit #6:death
         self.frame_index = 0
@@ -77,8 +77,10 @@ class Fighter():
         attacking_rect = pygame.Rect(self.rect.centerx - (2*self.rect.width*self.flip), self.rect.y, 2*self.rect.width, self.rect.height)
         if attacking_rect.colliderect(target.rect):
             target.health -= 10
+
         pygame.draw.rect(surface, (0,255,0), attacking_rect)
 
     def draw(self, surface):
+        img = pygame.transform.flip(self.image, self.flip, False)
         pygame.draw.rect(surface, (255,0,0), self.rect)
-        surface.blit(self.image, (self.rect.x - (self.offset[0]*self.image_scale), self.rect.y - (self.offset[1]*self.image_scale)))
+        surface.blit(img, (self.rect.x - (self.offset[0]*self.image_scale), self.rect.y - (self.offset[1]*self.image_scale)))
