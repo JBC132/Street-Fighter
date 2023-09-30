@@ -99,6 +99,10 @@ class Fighter():
 
         pygame.draw.rect(surface, (0,255,0), attacking_rect)
 
+    def update_action(self, new_action):
+        if new_action != self.action:
+            self.action = new_action
+
     def draw(self, surface):
         img = pygame.transform.flip(self.image, self.flip, False)
         pygame.draw.rect(surface, (255,0,0), self.rect)
