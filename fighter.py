@@ -79,9 +79,9 @@ class Fighter():
 
     def update(self):
         if self.running == True:
-            self.action = 1
+            self.update_action(1)
         else:
-            self.action = 0
+            self.update_action(0)
 
         animation_cooldown = 50
         self.image = self.animation_list[self.action][self.frame_index]
@@ -102,6 +102,8 @@ class Fighter():
     def update_action(self, new_action):
         if new_action != self.action:
             self.action = new_action
+            self.frame = 0
+            self.update_time = pygame.time.get_ticks()
 
     def draw(self, surface):
         img = pygame.transform.flip(self.image, self.flip, False)
