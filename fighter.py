@@ -36,6 +36,7 @@ class Fighter():
         dx = 0
         dy = 0
         self.running = False
+        self.attack_type = 0
 
         key = pygame.key.get_pressed()
 
@@ -78,7 +79,14 @@ class Fighter():
         self.rect.y += dy
 
     def update(self):
-        if self.running == True:
+        if self.attacking == True:
+            if self.attack_type == 1:
+                self.update_action(3)
+            elif self.attack_type == 2:
+                self.update_action(4)
+        elif self.jump == True:
+            self.update_action(2)
+        elif self.running == True:
             self.update_action(1)
         else:
             self.update_action(0)
