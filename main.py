@@ -41,7 +41,6 @@ def draw_health_bar(health, x, y):
     pygame.draw.rect(screen, RED, (x,y,400,30))
     pygame.draw.rect(screen, YELLOW, (x,y,400 * ratio,30))
 
-
 fighter_1 = Fighter(200, 310, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS)
 fighter_2 = Fighter(700, 310, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS)
 
