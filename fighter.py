@@ -83,7 +83,9 @@ class Fighter():
         self.rect.y += dy
 
     def update(self):
-        if self.attacking == True:
+        if self.hit == True:
+            self.update_action(5)
+        elif self.attacking == True:
             if self.attack_type == 1:
                 self.update_action(3)
             elif self.attack_type == 2:
@@ -104,7 +106,11 @@ class Fighter():
             self.frame_index = 0
             if self.action == 3 or self.action == 4:
                 self.attacking = False
-                self.attack_cooldown = 50
+                self.attack_cooldown = 20
+            if self.action == 5:
+                self.hit = False
+                self.attacking = False
+                self.attack_cooldown = 20
 
     def attack(self, surface, target):
         if self.attack_cooldown == 0:
@@ -112,6 +118,7 @@ class Fighter():
             attacking_rect = pygame.Rect(self.rect.centerx - (2*self.rect.width*self.flip), self.rect.y, 2*self.rect.width, self.rect.height)
             if attacking_rect.colliderect(target.rect):
                 target.health -= 10
+                target.hit = True
             pygame.draw.rect(surface, (0,255,0), attacking_rect)
 
         pygame.draw.rect(surface, (0,255,0), attacking_rect)
