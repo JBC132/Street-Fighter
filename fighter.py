@@ -19,6 +19,7 @@ class Fighter():
         self.attack_type = 0
         self.attack_cooldown = 0
         self.health = 100
+        self.alive = True
 
     def load_images(self, sprite_sheet, animation_steps):
         animation_list = []
@@ -83,7 +84,11 @@ class Fighter():
         self.rect.y += dy
 
     def update(self):
-        if self.hit == True:
+        if self.health <= 0:
+            self.health = 0
+            self.alive = False
+            self.update_action(6)
+        elif self.hit == True:
             self.update_action(5)
         elif self.attacking == True:
             if self.attack_type == 1:
