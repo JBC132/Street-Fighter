@@ -18,6 +18,7 @@ class Fighter():
         self.attacking = False
         self.attack_type = 0
         self.attack_cooldown = 0
+        self.hit = False
         self.health = 100
         self.alive = True
 
@@ -84,7 +85,9 @@ class Fighter():
         self.rect.y += dy
 
     def update(self):
-        if self.health <= 0:
+        if self.hit == True:
+            self.update_action(5)
+        elif self.health <= 0:
             self.health = 0
             self.alive = False
             self.update_action(6)
@@ -110,6 +113,10 @@ class Fighter():
         if self.frame_index >= len(self.animation_list[self.action]):
             self.frame_index = 0
             if self.action == 3 or self.action == 4:
+                self.attacking = False
+                self.attack_cooldown = 20
+            if self.action == 5:
+                self.hit = False
                 self.attacking = False
                 self.attack_cooldown = 20
             if self.action == 5:
