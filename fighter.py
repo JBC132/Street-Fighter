@@ -44,7 +44,7 @@ class Fighter():
 
         key = pygame.key.get_pressed()
 
-        if self.attacking == False:
+        if self.attacking == False and self.alive == True:
             if self.player == 1:        
                 if key[pygame.K_a]:
                     dx = -SPEED
