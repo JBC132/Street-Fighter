@@ -34,6 +34,13 @@ wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").conv
 WARRIOR_ANIMATION_STEPS = [10,8,1,7,7,3,7]
 WIZARD_ANIMATION_STEPS = [8,8,1,8,8,3,7]
 
+count_font = pygame.font.Font("assets/fonts/turok.ttf", 80)
+score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
+
+def draw_text(text, font, text_col, x, y):
+    img = font.render(text, True, text_col)
+    screen.blit(img, (x,y))
+
 def draw_bg():
     scaled_bg = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
     screen.blit(scaled_bg, (0,0))
