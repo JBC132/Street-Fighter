@@ -16,6 +16,9 @@ WHITE = (255,255,255)
 
 intro_count = 3
 last_count_update = pygame.time.get_ticks()
+score = [0,0]
+round_over = False
+ROUND_OVER_COOLDOWN = 2000
 
 WARRIOR_SIZE = 162
 WARRIOR_SCALE = 4
@@ -78,6 +81,18 @@ while run:
 
     fighter_1.draw(screen)
     fighter_2.draw(screen)
+
+    if round_over == False:
+        if fighter_1.alive == False:
+            score[1] += 1
+            round_over = True
+            round_over_time = pygame.time.get_ticks()
+        
+        elif fighter_2.alive == False:
+            score[0] += 1
+            round_over = True
+            round_over_time = pygame.time.get_ticks()
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
