@@ -34,6 +34,8 @@ bg_image = pygame.image.load("assets/images/background/background.jpg").convert_
 warrior_sheet = pygame.image.load("assets/images/warrior/Sprites/warrior.png").convert_alpha()
 wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").convert_alpha()
 
+victory_img = pygame.image.load("assets/images/icons/victory.png").convert_alpha()
+
 WARRIOR_ANIMATION_STEPS = [10,8,1,7,7,3,7]
 WIZARD_ANIMATION_STEPS = [8,8,1,8,8,3,7]
 
@@ -92,6 +94,8 @@ while run:
             score[0] += 1
             round_over = True
             round_over_time = pygame.time.get_ticks()
+    else:
+        pass
 
 
     for event in pygame.event.get():
