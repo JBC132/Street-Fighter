@@ -69,8 +69,8 @@ while run:
     draw_health_bar(fighter_2.health, 580, 20)
 
     if intro_count <= 0:
-        fighter_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, fighter_2)
-        fighter_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, fighter_1)
+        fighter_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, fighter_2, round_over)
+        fighter_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, fighter_1, round_over)
     
     else:
         if (pygame.time.get_ticks() - last_count_update) >= 1000:
