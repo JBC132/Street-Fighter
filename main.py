@@ -1,6 +1,10 @@
 import pygame
+from pygame import mixer
 from fighter import Fighter
+
+mixer.init()
 pygame.init()
+
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
 
@@ -28,6 +32,10 @@ WIZARD_SIZE = 250
 WIZARD_SCALE = 3
 WIZARD_OFFSET = [112,107]
 WIZARD_DATA = [WIZARD_SIZE, WIZARD_SIZE, WIZARD_OFFSET]
+
+pygame.mixer.music.load("assets/audio/music.mp3")
+pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.play(-1, 0.0, 5000)
 
 bg_image = pygame.image.load("assets/images/background/background.jpg").convert_alpha()
 
